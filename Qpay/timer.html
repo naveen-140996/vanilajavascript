@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<body>
+    <p>Timer App</p>
+    <span>
+        <span id="hour">00</span>
+        <span id="minutes">: 00</span>
+        <span id="seconds">: 00</span>
+    </span>
+   
+
+    <div style="margin-top: 20px;">
+        <button class="start"> Start </button>
+        <button class="stop"> Stop  </button>
+        <button class="reset"> reset </button>
+    </div>
+   
+    <script src="script.js"></script>
+
+    <script>
+        let date = new Date();
+        let hour = document.getElementById('hour');
+        
+        let minutes = document.getElementById('minutes');
+        let seconds = document.getElementById('seconds');
+
+
+        let start = document.querySelector('.start');
+        let stop = document.querySelector('.stop');
+        let reset = document.querySelector('.reset')
+
+
+        start.addEventListener('click',()=>{
+            let interval = setInterval(()=>{
+                date = new Date();
+                let h = date.getHours();
+                let m = date.getMinutes();
+                let s = date.getSeconds();
+
+                hour.innerHTML = h;
+                minutes.innerHTML = m;
+                seconds.innerHTML = s;
+            })
+        })
+
+        reset.addEventListener('click',()=>{
+            clearInterval();
+    
+        })
+    </script>
+</body>
+</html>

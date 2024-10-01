@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip Example</title>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+</head>
+<body>
+
+<table class="table-auto w-full text-sm text-left">
+    <thead>
+        <tr>
+            <th class="border-b-2 font-medium px-5 py-3 text-center">
+                T P C
+                <button data-tippy-content="Total Payin Count" class="relative top-0.5 ml-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </button>
+            </th>
+
+            <th class="border-b-2 font-medium px-5 py-3 text-center">
+                S C
+                <button data-tippy-content="Success Count" class="relative top-0.5 ml-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </button>
+            </th>
+
+            <th class="border-b-2 font-medium px-5 py-3 text-center">
+                S R
+                <button data-tippy-content="Success Rate" class="relative top-0.5 ml-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </button>
+            </th>
+
+            <th class="border-b-2 font-medium px-5 py-3 text-center">
+                T P A
+                <button data-tippy-content="Total Payin Amount" class="relative top-0.5 ml-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </button>
+            </th>
+
+            <th class="border-b-2 font-medium px-5 py-3 text-center">
+                S P A
+                <button data-tippy-content="Success Payin Amount" class="relative top-0.5 ml-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </button>
+            </th>
+
+            <th class="border-b-2 font-medium px-5 py-3 text-center">
+                S A R
+                <button data-tippy-content="Success Amount Rate" class="relative top-0.5 ml-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </button>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+<!-- Tippy.js Initialization -->
+<script>
+    window.onload = function() {
+  tippy('[data-tippy-content]', {
+    theme: 'light',
+    placement: 'bottom',
+  });
+};
+</script>
+
+</body>
+</html>

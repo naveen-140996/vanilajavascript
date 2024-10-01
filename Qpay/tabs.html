@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+    <style>
+        .tab1-content{
+            display: none;
+        }
+        .tab1-content.active{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="tabs">
+            <button class="active">tab1</button>
+            <button>tab2</button>
+            <button>tab3</button>
+            <button>tab4</button>
+        </div>
+        <div class="tab-content">
+            <p class="tab1-content active">tab1 content</p>
+            <p class="tab1-content">tab2 content</p>
+            <p class="tab1-content">tab3 content</p>
+            <p class="tab1-content">tab4 content</p>
+        </div>
+        <script src="script.js"></script>
+
+
+        <script>
+             const tabs = document.querySelectorAll('.tabs button');
+    const tabContents = document.querySelectorAll('.tab-content p');
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs
+            tabs.forEach(item => item.classList.remove('active'));
+
+            // Remove active class from all content
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Add active class to the clicked tab
+            tab.classList.add('active');
+
+            // Add active class to the corresponding tab content
+            tabContents[index].classList.add('active');
+        });
+    });
+        
+        </script>
+</body>
+</html>

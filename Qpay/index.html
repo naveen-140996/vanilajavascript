@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="slider-container">
+  <div class="slide-inner">
+      <img src="./assets/image-5.jpg" id="lastClone" alt="">
+     <img src="./assets/image1.jpg" alt="">
+     <img src="./assets/image-2.jpg" alt="">
+     <img src="./assets/image-3.jpg" alt="">
+     <img src="./assets/image-4.jpg" alt="">
+     <img src="./assets/image-5.jpg" alt="">
+     <img src="./assets/image1.jpg" alt="" id="firstClone">
+  </div>
+</div>
+<div>
+  <button type="button" id="prev">Prev</button>
+  <button type="button" id="next">Next</button>
+</div>
+<script src="script.js"></script>
+
+<script>
+
+const slideInner = document.querySelector('.slide-inner');
+const slideImages = document.querySelectorAll('.slide-inner img');
+const prevButton = document.querySelector('#prev');
+const nextButton = document.querySelector('#next');
+
+function slider() {
+  let counter = 1;
+  const size = slideImages[0].clientWidth;
+  console.log(size);
+  
+  // 1st image takes center
+  slideInner.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+  // Auto-slide function
+  function autoSlide() {
+    if (counter >= slideImages.length - 1) return; // Stop at the last image
+    nextSlide();
+  }
+
+  // Next slide function
+  function nextSlide() {
+    if (counter >= slideImages.length - 1) return;
+    slideInner.style.transition = 'transform 0.4s ease-in-out';
+    counter++;
+    slideInner.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    console.log(slideInner);
+  }
+
+  // Previous slide function
+  function prevSlide() {
+    if (counter <= 0) return;
+    slideInner.style.transition = 'transform 0.4s ease-in-out';
+    counter--;
+    slideInner.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    console.log(slideInner);
+  }
+
+  // Event listeners for buttons
+  nextButton.addEventListener('click', nextSlide);
+  prevButton.addEventListener('click', prevSlide);
+
+  // Auto-slide every 3 seconds
+  const autoSlideInterval = setInterval(autoSlide, 3000);
+
+  slideInner.addEventListener('transitionend', () => {
+    if (slideImages[counter].id === 'lastClone') {
+      slideInner.style.transition = 'none';
+      counter = slideImages.length - 2;
+      slideInner.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    }
+    if (slideImages[counter].id === 'firstClone') {
+      slideInner.style.transition = 'none';
+      counter = slideImages.length - counter;
+      slideInner.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    }
+  });
+}
+
+// Initialize the slider
+slider();
+
+
+</script>
+</body>
+</html> 

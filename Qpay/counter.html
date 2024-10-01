@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .counter{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .counter-container{
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter">
+        <h2>We are opening soon!</h2>
+        <div class="counter-container">
+           
+            <div class="container-div">
+                <h3 class="day">Timer</h3>
+                <h3>day</h3>
+            </div>
+            <div class="container-div">
+                <h3 class="hour">Timer</h3>
+                <h3>Hour</h3>
+            </div>
+            <div class="container-div">
+                <h3 class="minute">Timer</h3>
+                <h3>Minute</h3>
+            </div>
+            <div class="container-div">
+                <h3 class="second">Timer</h3>
+                <h3>seconds</h3>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const countDown = () => {
+    const countDownTimer = new Date("Jun 17, 2024 00:00:00").getTime();
+    const now = new Date().getTime();
+    const gap = countDownTimer - now;
+
+    // If the target date has passed, stop decrementing and set to 0
+    
+
+    // Time calculations
+    const seconds = 1000;
+    const minutes = seconds * 60;
+    const hour = minutes * 60;
+    const day = hour * 24;
+
+    // Calculate days, hours, minutes, and seconds remaining
+    const textDay = Math.floor(gap / day);
+    const textHour = Math.floor((gap % day) / hour);
+    const textMinutes = Math.floor((gap % hour) / minutes);
+    const textSeconds = Math.floor((gap % minutes) / seconds);
+
+    // Update the HTML with the decremented values
+    document.querySelector(".day").innerText = textDay;
+    document.querySelector(".hour").innerText = textHour;
+    document.querySelector(".minute").innerText = textMinutes;
+    document.querySelector(".second").innerText = textSeconds;
+   
+};
+
+// Call the countdown function every second to decrement the countdown
+setInterval(countDown, 1000);
+    </script>
+</body>
+</html>
